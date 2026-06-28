@@ -45,6 +45,10 @@ export class AuthService {
       });
 
       if (!user) {
+        if (this.configurationService.get('DISALLOW_REGISTRATION')) {
+          throw new Error('Sign up forbidden');
+        }
+
         const isUserSignupEnabled =
           await this.propertyService.isUserSignupEnabled();
 

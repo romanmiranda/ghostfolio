@@ -41,6 +41,7 @@ export class ConfigurationService {
       DATA_SOURCES_GHOSTFOLIO_DATA_PROVIDER: json({
         default: []
       }),
+      DISALLOW_REGISTRATION: bool({ default: false }),
       ENABLE_FEATURE_AUTH_GOOGLE: bool({ default: false }),
       ENABLE_FEATURE_AUTH_OIDC: bool({ default: false }),
       ENABLE_FEATURE_AUTH_TOKEN: bool({ default: true }),

@@ -129,6 +129,13 @@ export class UserController {
 
   @Post()
   public async signupUser(): Promise<UserItem> {
+    if (this.configurationService.get('DISALLOW_REGISTRATION')) {
+      throw new HttpException(
+        getReasonPhrase(StatusCodes.FORBIDDEN),
+        StatusCodes.FORBIDDEN
+      );
+    }
+
     const isUserSignupEnabled =
       await this.propertyService.isUserSignupEnabled();
 
